@@ -1,0 +1,25 @@
+🔍 Bắt đầu consume dữ liệu 5G từ topic: 5g-network-data
+Nhấn Ctrl+C để dừng
+
+📡 5G_CELL_7 | Msgs:   1 | Avg Throughput: 904.85 Mbps | Avg Latency: 9.06 ms | Packet Loss: 0.22% | Devices: 1 | QoS: mMTC | Service: video_streaming
+📡 5G_CELL_7 | Msgs:   2 | Avg Throughput: 783.41 Mbps | Avg Latency: 7.17 ms | Packet Loss: 2.19% | Devices: 2 | QoS: mMTC, eMBB | Service: gaming
+⚠️  HIGH PACKET LOSS: 5G_CELL_7 - 2.19%
+📡 5G_CELL_13 | Msgs:   1 | Avg Throughput: 391.87 Mbps | Avg Latency: 4.83 ms | Packet Loss: 3.08% | Devices: 1 | QoS: eMBB | Service: gaming
+⚠️  HIGH PACKET LOSS: 5G_CELL_13 - 3.08%
+📡 5G_CELL_7 | Msgs:   3 | Avg Throughput: 595.86 Mbps | Avg Latency: 7.94 ms | Packet Loss: 1.96% | Devices: 2 | QoS: mMTC, eMBB | Service: iot_telemetry
+📡 5G_CELL_8 | Msgs:   1 | Avg Throughput: 913.67 Mbps | Avg Latency: 8.62 ms | Packet Loss: 1.82% | Devices: 1 | QoS: URLLC | Service: video_streaming
+📡 5G_CELL_20 | Msgs:   1 | Avg Throughput: 784.35 Mbps | Avg Latency: 2.37 ms | Packet Loss: 0.11% | Devices: 1 | QoS: mMTC | Service: iot_telemetry
+📡 5G_CELL_5 | Msgs:   1 | Avg Throughput: 774.27 Mbps | Avg Latency: 3.26 ms | Packet Loss: 1.24% | Devices: 1 | QoS: eMBB | Service: video_streaming
+📡 5G_CELL_16 | Msgs:   1 | Avg Throughput: 754.23 Mbps | Avg Latency: 7.84 ms | Packet Loss: 3.26% | Devices: 1 | QoS: eMBB | Service: video_streaming
+⚠️  HIGH PACKET LOSS: 5G_CELL_16 - 3.26%
+📡 5G_CELL_8 | Msgs:   2 | Avg Throughput: 648.04 Mbps | Avg Latency: 8.31 ms | Packet Loss: 1.55% | Devices: 1 | QoS: URLLC, eMBB | Service: gaming
+📡 5G_CELL_11 | Msgs:   1 | Avg Throughput: 239.96 Mbps | Avg Latency: 5.17 ms | Packet Loss: 3.68% | Devices: 1 | QoS: URLLC | Service: gaming
+⚠️  HIGH PACKET LOSS: 5G_CELL_11 - 3.68%
+📡 5G_CELL_13 | Msgs:   2 | Avg Throughput: 486.46 Mbps | Avg Latency: 6.12 ms | Packet Loss: 3.52% | Devices: 1 | QoS: eMBB | Service: autonomous_driving
+⚠️  HIGH PACKET LOSS: 5G_CELL_13 - 3.52%
+📡 5G_CELL_13 | Msgs:   3 | Avg Throughput: 574.64 Mbps | Avg Latency: 5.01 ms | Packet Loss: 2.39% | Devices: 2 | QoS: eMBB | Service: gaming
+⚠️  HIGH PACKET LOSS: 5G_CELL_13 - 2.39%
+📡 5G_CELL_6 | Msgs:   1 | Avg Throughput: 321.87 Mbps | Avg Latency: 5.46 ms | Packet Loss: 3.25% | Devices: 1 | QoS: URLLC | Service: gaming
+⚠️  HIGH PACKET LOSS: 5G_CELL_6 - 3.25%
+
+⏹️  Đang dừng consumer...

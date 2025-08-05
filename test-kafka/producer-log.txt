@@ -1,0 +1,100 @@
+🚀 Bắt đầu gửi dữ liệu 5G đến topic: 5g-network-data
+Nhấn Ctrl+C để dừng
+
+📡 Sent #1: 5G_CELL_13 | ar_device | Throughput: 667.12 Mbps | Latency: 4.51 ms | QoS: URLLC
+Message delivered to 5g-network-data [0] at offset 0
+📡 Sent #2: 5G_CELL_8 | iot_sensor | Throughput: 663.26 Mbps | Latency: 9.01 ms | QoS: mMTC
+Message delivered to 5g-network-data [0] at offset 1
+📡 Sent #3: 5G_CELL_17 | autonomous_vehicle | Throughput: 266.99 Mbps | Latency: 1.27 ms | QoS: mMTC
+Message delivered to 5g-network-data [2] at offset 0
+📡 Sent #4: 5G_CELL_16 | ar_device | Throughput: 527.94 Mbps | Latency: 6.9 ms | QoS: URLLC
+Message delivered to 5g-network-data [1] at offset 0
+📡 Sent #5: 5G_CELL_1 | smartphone | Throughput: 435.33 Mbps | Latency: 2.86 ms | QoS: mMTC
+Message delivered to 5g-network-data [1] at offset 1
+📡 Sent #6: 5G_CELL_17 | iot_sensor | Throughput: 387.81 Mbps | Latency: 9.07 ms | QoS: eMBB
+Message delivered to 5g-network-data [2] at offset 1
+📡 Sent #7: 5G_CELL_11 | ar_device | Throughput: 154.01 Mbps | Latency: 8.43 ms | QoS: URLLC
+Message delivered to 5g-network-data [0] at offset 2
+📡 Sent #8: 5G_CELL_9 | iot_sensor | Throughput: 422.31 Mbps | Latency: 2.41 ms | QoS: mMTC
+Message delivered to 5g-network-data [2] at offset 2
+📡 Sent #9: 5G_CELL_12 | ar_device | Throughput: 445.02 Mbps | Latency: 5.14 ms | QoS: URLLC
+Message delivered to 5g-network-data [1] at offset 2
+📡 Sent #10: 5G_CELL_1 | smartphone | Throughput: 233.51 Mbps | Latency: 9.1 ms | QoS: URLLC
+Message delivered to 5g-network-data [1] at offset 3
+📡 Sent #11: 5G_CELL_5 | smartphone | Throughput: 572.69 Mbps | Latency: 7.09 ms | QoS: mMTC
+Message delivered to 5g-network-data [2] at offset 3
+📡 Sent #12: 5G_CELL_9 | smartphone | Throughput: 750.28 Mbps | Latency: 2.23 ms | QoS: URLLC
+Message delivered to 5g-network-data [2] at offset 4
+📡 Sent #13: 5G_CELL_20 | iot_sensor | Throughput: 748.37 Mbps | Latency: 2.08 ms | QoS: URLLC
+Message delivered to 5g-network-data [0] at offset 3
+📡 Sent #14: 5G_CELL_2 | smartphone | Throughput: 734.93 Mbps | Latency: 5.87 ms | QoS: URLLC
+Message delivered to 5g-network-data [0] at offset 4
+📡 Sent #15: 5G_CELL_12 | iot_sensor | Throughput: 637.3 Mbps | Latency: 3.14 ms | QoS: mMTC
+Message delivered to 5g-network-data [1] at offset 4
+📡 Sent #16: 5G_CELL_9 | autonomous_vehicle | Throughput: 586.62 Mbps | Latency: 5.05 ms | QoS: eMBB
+Message delivered to 5g-network-data [2] at offset 5
+📡 Sent #17: 5G_CELL_2 | autonomous_vehicle | Throughput: 791.02 Mbps | Latency: 2.36 ms | QoS: eMBB
+Message delivered to 5g-network-data [0] at offset 5
+📡 Sent #18: 5G_CELL_19 | iot_sensor | Throughput: 397.02 Mbps | Latency: 1.97 ms | QoS: eMBB
+Message delivered to 5g-network-data [0] at offset 6
+📡 Sent #19: 5G_CELL_20 | iot_sensor | Throughput: 656.21 Mbps | Latency: 7.57 ms | QoS: eMBB
+Message delivered to 5g-network-data [0] at offset 7
+📡 Sent #20: 5G_CELL_9 | iot_sensor | Throughput: 742.55 Mbps | Latency: 8.12 ms | QoS: URLLC
+Message delivered to 5g-network-data [2] at offset 6
+📡 Sent #21: 5G_CELL_13 | autonomous_vehicle | Throughput: 796.84 Mbps | Latency: 6.86 ms | QoS: URLLC
+Message delivered to 5g-network-data [0] at offset 8
+📡 Sent #22: 5G_CELL_13 | autonomous_vehicle | Throughput: 495.56 Mbps | Latency: 1.74 ms | QoS: mMTC
+Message delivered to 5g-network-data [0] at offset 9
+📡 Sent #23: 5G_CELL_4 | iot_sensor | Throughput: 356.06 Mbps | Latency: 1.7 ms | QoS: URLLC
+Message delivered to 5g-network-data [1] at offset 5
+📡 Sent #24: 5G_CELL_19 | ar_device | Throughput: 265.55 Mbps | Latency: 9.59 ms | QoS: eMBB
+Message delivered to 5g-network-data [0] at offset 10
+📡 Sent #25: 5G_CELL_9 | iot_sensor | Throughput: 71.39 Mbps | Latency: 3.76 ms | QoS: eMBB
+Message delivered to 5g-network-data [2] at offset 7
+📡 Sent #26: 5G_CELL_9 | iot_sensor | Throughput: 86.54 Mbps | Latency: 4.87 ms | QoS: URLLC
+Message delivered to 5g-network-data [2] at offset 8
+📡 Sent #27: 5G_CELL_17 | smartphone | Throughput: 314.87 Mbps | Latency: 5.47 ms | QoS: URLLC
+Message delivered to 5g-network-data [2] at offset 9
+📡 Sent #28: 5G_CELL_12 | ar_device | Throughput: 775.79 Mbps | Latency: 4.97 ms | QoS: eMBB
+Message delivered to 5g-network-data [1] at offset 6
+📡 Sent #29: 5G_CELL_7 | autonomous_vehicle | Throughput: 904.85 Mbps | Latency: 9.06 ms | QoS: mMTC
+Message delivered to 5g-network-data [0] at offset 11
+📡 Sent #30: 5G_CELL_7 | ar_device | Throughput: 661.98 Mbps | Latency: 5.28 ms | QoS: eMBB
+Message delivered to 5g-network-data [0] at offset 12
+📡 Sent #31: 5G_CELL_13 | ar_device | Throughput: 391.87 Mbps | Latency: 4.83 ms | QoS: eMBB
+Message delivered to 5g-network-data [0] at offset 13
+📡 Sent #32: 5G_CELL_7 | autonomous_vehicle | Throughput: 220.76 Mbps | Latency: 9.49 ms | QoS: eMBB
+Message delivered to 5g-network-data [0] at offset 14
+📡 Sent #33: 5G_CELL_8 | smartphone | Throughput: 913.67 Mbps | Latency: 8.62 ms | QoS: URLLC
+Message delivered to 5g-network-data [0] at offset 15
+📡 Sent #34: 5G_CELL_20 | smartphone | Throughput: 784.35 Mbps | Latency: 2.37 ms | QoS: mMTC
+Message delivered to 5g-network-data [0] at offset 16
+📡 Sent #35: 5G_CELL_5 | ar_device | Throughput: 774.27 Mbps | Latency: 3.26 ms | QoS: eMBB
+Message delivered to 5g-network-data [2] at offset 10
+📡 Sent #36: 5G_CELL_16 | iot_sensor | Throughput: 754.23 Mbps | Latency: 7.84 ms | QoS: eMBB
+Message delivered to 5g-network-data [1] at offset 7
+📡 Sent #37: 5G_CELL_8 | smartphone | Throughput: 382.41 Mbps | Latency: 8.0 ms | QoS: eMBB
+Message delivered to 5g-network-data [0] at offset 17
+📡 Sent #38: 5G_CELL_11 | iot_sensor | Throughput: 239.96 Mbps | Latency: 5.17 ms | QoS: URLLC
+Message delivered to 5g-network-data [0] at offset 18
+📡 Sent #39: 5G_CELL_13 | ar_device | Throughput: 581.05 Mbps | Latency: 7.41 ms | QoS: eMBB
+Message delivered to 5g-network-data [0] at offset 19
+📡 Sent #40: 5G_CELL_13 | iot_sensor | Throughput: 750.99 Mbps | Latency: 2.78 ms | QoS: eMBB
+Message delivered to 5g-network-data [0] at offset 20
+📡 Sent #41: 5G_CELL_6 | smartphone | Throughput: 321.87 Mbps | Latency: 5.46 ms | QoS: URLLC
+Message delivered to 5g-network-data [0] at offset 21
+📡 Sent #42: 5G_CELL_14 | iot_sensor | Throughput: 688.28 Mbps | Latency: 9.63 ms | QoS: URLLC
+Message delivered to 5g-network-data [2] at offset 11
+📡 Sent #43: 5G_CELL_3 | autonomous_vehicle | Throughput: 58.43 Mbps | Latency: 1.86 ms | QoS: eMBB
+Message delivered to 5g-network-data [0] at offset 22
+📡 Sent #44: 5G_CELL_1 | smartphone | Throughput: 633.75 Mbps | Latency: 3.12 ms | QoS: mMTC
+Message delivered to 5g-network-data [1] at offset 8
+📡 Sent #45: 5G_CELL_2 | ar_device | Throughput: 501.58 Mbps | Latency: 7.29 ms | QoS: eMBB
+Message delivered to 5g-network-data [0] at offset 23
+📡 Sent #46: 5G_CELL_5 | smartphone | Throughput: 352.4 Mbps | Latency: 6.39 ms | QoS: eMBB
+Message delivered to 5g-network-data [2] at offset 12
+📡 Sent #47: 5G_CELL_14 | autonomous_vehicle | Throughput: 160.62 Mbps | Latency: 5.93 ms | QoS: URLLC
+
+⏹️  Đang dừng producer... Đã gửi 47 messages
+Message delivered to 5g-network-data [2] at offset 13
+✅ Producer đã dừng
