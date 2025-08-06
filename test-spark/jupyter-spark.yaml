@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jupyter-spark
+  namespace: spark
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jupyter-spark
+  template:
+    metadata:
+      labels:
+        app: jupyter-spark
+    spec:
+      containers:
+      - name: jupyter
+        image: jupyter/pyspark-notebook:latest
+        env:
+        - name: SPARK_MASTER
+          value: "spark://spark-master-svc:7077"
+        ports:
+        - containerPort: 8888
+        volumeMounts:
+        - name: notebook-storage
+          mountPath: /home/jovyan/work
+      volumes:
+      - name: notebook-storage
+        emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jupyter-svc
+  namespace: spark
+spec:
+  selector:
+    app: jupyter-spark
+  ports:
+  - port: 8888
+    targetPort: 8888
+  type: NodePort

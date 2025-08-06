@@ -1,0 +1,1 @@
+![](assets/Intro%20to%20Spark_Cert.pdf)
