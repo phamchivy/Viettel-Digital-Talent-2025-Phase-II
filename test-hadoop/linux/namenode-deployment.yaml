@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: hadoop-namenode
+  namespace: hadoop
+spec:
+  serviceName: hadoop-namenode
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hadoop-namenode
+  template:
+    metadata:
+      labels:
+        app: hadoop-namenode
+    spec:
+      containers:
+      - name: namenode
+        image: apache/hadoop:3.3.4
+        ports:
+        - containerPort: 8020
+        - containerPort: 9870
+        env:
+        - name: CLUSTER_NAME
+          value: "hadoop-cluster"
+        - name: CORE_CONF_fs_defaultFS
+          value: "hdfs://hadoop-namenode:8020"
+        - name: CORE_CONF_hadoop_tmp_dir
+          value: "/tmp/hadoop"
+        - name: HDFS_CONF_dfs_replication
+          value: "2"
+        - name: HDFS_CONF_dfs_namenode_name_dir
+          value: "/hadoop/dfs/name"
+        - name: HDFS_CONF_dfs_datanode_data_dir
+          value: "/hadoop/dfs/data"
+        command: ["/bin/bash", "-c"]
+        args:
+        - |
+          if [ ! -d "/hadoop/dfs/name/current" ]; then
+            hdfs namenode -format -force
+          fi
+          hdfs namenode
+        volumeMounts:
+        - name: hadoop-config
+          mountPath: /opt/hadoop/etc/hadoop
+        - name: namenode-storage
+          mountPath: /hadoop/dfs/name
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"
+      volumes:
+      - name: hadoop-config
+        configMap:
+          name: hadoop-config
+  volumeClaimTemplates:
+  - metadata:
+      name: namenode-storage
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: 10Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hadoop-namenode
+  namespace: hadoop
+spec:
+  selector:
+    app: hadoop-namenode
+  ports:
+  - name: namenode-port
+    port: 8020
+    targetPort: 8020
+  - name: namenode-web
+    port: 9870
+    targetPort: 9870
+  type: ClusterIP

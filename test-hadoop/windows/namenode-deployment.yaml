@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: hadoop-namenode
+  namespace: hadoop
+spec:
+  serviceName: hadoop-namenode
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hadoop-namenode
+  template:
+    metadata:
+      labels:
+        app: hadoop-namenode
+    spec:
+      containers:
+      - name: namenode
+        image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
+        ports:
+        - containerPort: 9000
+        - containerPort: 9870
+        env:
+        - name: CLUSTER_NAME
+          value: "hadoop-cluster"
+        - name: CORE_CONF_fs_defaultFS
+          value: "hdfs://hadoop-namenode:9000"
+        - name: CORE_CONF_hadoop_http_staticuser_user
+          value: "root"
+        - name: CORE_CONF_hadoop_proxyuser_hue_hosts
+          value: "*"
+        - name: CORE_CONF_hadoop_proxyuser_hue_groups
+          value: "*"
+        - name: HDFS_CONF_dfs_webhdfs_enabled
+          value: "true"
+        - name: HDFS_CONF_dfs_permissions_enabled
+          value: "false"
+        - name: HDFS_CONF_dfs_replication
+          value: "1"
+        # Quan trọng: Sử dụng IP thay vì hostname
+        - name: HDFS_CONF_dfs_client_use_datanode_hostname
+          value: "false"
+        - name: HDFS_CONF_dfs_datanode_use_datanode_hostname
+          value: "false"
+        - name: HDFS_CONF_dfs_namenode_datanode_registration_ip___hostname___check
+          value: "false"
+        volumeMounts:
+        - name: namenode-storage
+          mountPath: /hadoop/dfs/name
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"
+      volumes: []
+  volumeClaimTemplates:
+  - metadata:
+      name: namenode-storage
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: 10Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hadoop-namenode
+  namespace: hadoop
+spec:
+  selector:
+    app: hadoop-namenode
+  ports:
+  - name: namenode-port
+    port: 9000
+    targetPort: 9000
+  - name: namenode-web
+    port: 9870
+    targetPort: 9870
+    nodePort: 30870
+  type: NodePort

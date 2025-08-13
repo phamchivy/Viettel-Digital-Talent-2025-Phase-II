@@ -1,0 +1,157 @@
+# ResourceManager Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hadoop-resourcemanager
+  namespace: hadoop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hadoop-resourcemanager
+  template:
+    metadata:
+      labels:
+        app: hadoop-resourcemanager
+    spec:
+      containers:
+      - name: resourcemanager
+        image: bde2020/hadoop-resourcemanager:2.0.0-hadoop3.2.1-java8
+        ports:
+        - containerPort: 8088
+        - containerPort: 8032
+        - containerPort: 8030
+        - containerPort: 8031
+        env:
+        - name: CORE_CONF_fs_defaultFS
+          value: "hdfs://hadoop-namenode:9000"
+        - name: YARN_CONF_yarn_resourcemanager_hostname
+          value: "hadoop-resourcemanager"
+        - name: YARN_CONF_yarn_resourcemanager_bind___host
+          value: "0.0.0.0"
+        - name: YARN_CONF_yarn_resourcemanager_resource___tracker_address
+          value: "hadoop-resourcemanager:8031"
+        - name: YARN_CONF_yarn_resourcemanager_scheduler_address
+          value: "hadoop-resourcemanager:8030"
+        - name: YARN_CONF_yarn_resourcemanager_address
+          value: "hadoop-resourcemanager:8032"
+        - name: YARN_CONF_yarn_resourcemanager_webapp_address
+          value: "hadoop-resourcemanager:8088"
+        - name: YARN_CONF_yarn_nodemanager_aux___services
+          value: "mapreduce_shuffle"
+        - name: YARN_CONF_yarn_nodemanager_resource_memory___mb
+          value: "1536"
+        - name: YARN_CONF_yarn_scheduler_maximum___allocation___mb
+          value: "1536"
+        - name: YARN_CONF_yarn_scheduler_maximum___allocation___vcores
+          value: "2"
+        volumeMounts:
+        - name: hadoop-config
+          mountPath: /opt/hadoop/etc/hadoop
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"
+      volumes:
+      - name: hadoop-config
+        configMap:
+          name: hadoop-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hadoop-resourcemanager
+  namespace: hadoop
+spec:
+  selector:
+    app: hadoop-resourcemanager
+  ports:
+  - name: resourcemanager-web
+    port: 8088
+    targetPort: 8088
+    nodePort: 30088
+  - name: resourcemanager-rpc
+    port: 8032
+    targetPort: 8032
+  - name: resourcemanager-scheduler
+    port: 8030
+    targetPort: 8030
+  - name: resourcemanager-tracker
+    port: 8031
+    targetPort: 8031
+  type: NodePort
+---
+# NodeManager DaemonSet
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: hadoop-nodemanager
+  namespace: hadoop
+spec:
+  selector:
+    matchLabels:
+      app: hadoop-nodemanager
+  template:
+    metadata:
+      labels:
+        app: hadoop-nodemanager
+    spec:
+      containers:
+      - name: nodemanager
+        image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
+        ports:
+        - containerPort: 8042
+        env:
+        - name: CORE_CONF_fs_defaultFS
+          value: "hdfs://hadoop-namenode:9000"
+        - name: YARN_CONF_yarn_resourcemanager_hostname
+          value: "hadoop-resourcemanager"
+        - name: YARN_CONF_yarn_resourcemanager_address
+          value: "hadoop-resourcemanager:8032"
+        - name: YARN_CONF_yarn_resourcemanager_scheduler_address
+          value: "hadoop-resourcemanager:8030"
+        - name: YARN_CONF_yarn_resourcemanager_resource___tracker_address
+          value: "hadoop-resourcemanager:8031"
+        - name: YARN_CONF_yarn_nodemanager_aux___services
+          value: "mapreduce_shuffle"
+        - name: YARN_CONF_yarn_nodemanager_resource_memory___mb
+          value: "1536"
+        - name: YARN_CONF_yarn_scheduler_maximum___allocation___mb
+          value: "1536"
+        volumeMounts:
+        - name: hadoop-config
+          mountPath: /opt/hadoop/etc/hadoop
+        - name: nodemanager-logs
+          mountPath: /opt/hadoop/logs
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"
+      volumes:
+      - name: hadoop-config
+        configMap:
+          name: hadoop-config
+      - name: nodemanager-logs
+        hostPath:
+          path: /tmp/hadoop/logs
+          type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hadoop-nodemanager
+  namespace: hadoop
+spec:
+  selector:
+    app: hadoop-nodemanager
+  ports:
+  - name: nodemanager-web
+    port: 8042
+    targetPort: 8042
+  type: ClusterIP

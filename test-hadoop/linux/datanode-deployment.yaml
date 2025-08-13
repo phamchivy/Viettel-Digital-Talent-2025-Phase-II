@@ -1,0 +1,73 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: hadoop-datanode
+  namespace: hadoop
+spec:
+  selector:
+    matchLabels:
+      app: hadoop-datanode
+  template:
+    metadata:
+      labels:
+        app: hadoop-datanode
+    spec:
+      containers:
+      - name: datanode
+        image: apache/hadoop:3.3.4
+        ports:
+        - containerPort: 9864
+        - containerPort: 9866
+        - containerPort: 9867
+        env:
+        - name: CORE_CONF_fs_defaultFS
+          value: "hdfs://hadoop-namenode:8020"
+        - name: CORE_CONF_hadoop_tmp_dir
+          value: "/tmp/hadoop"
+        - name: HDFS_CONF_dfs_replication
+          value: "2"
+        - name: HDFS_CONF_dfs_datanode_data_dir
+          value: "/hadoop/dfs/data"
+        - name: HDFS_CONF_dfs_namenode_datanode_registration_ip___hostname___check
+          value: "false"
+        command: ["hdfs", "datanode"]
+        volumeMounts:
+        - name: hadoop-config
+          mountPath: /opt/hadoop/etc/hadoop
+        - name: datanode-storage
+          mountPath: /hadoop/dfs/data
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"
+      volumes:
+      - name: hadoop-config
+        configMap:
+          name: hadoop-config
+      - name: datanode-storage
+        hostPath:
+          path: /hadoop/datanode
+          type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hadoop-datanode
+  namespace: hadoop
+spec:
+  selector:
+    app: hadoop-datanode
+  ports:
+  - name: datanode-web
+    port: 9864
+    targetPort: 9864
+  - name: datanode-data
+    port: 9866
+    targetPort: 9866
+  - name: datanode-ipc
+    port: 9867
+    targetPort: 9867
+  type: ClusterIP
